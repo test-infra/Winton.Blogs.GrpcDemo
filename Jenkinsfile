@@ -23,6 +23,8 @@ node {
   buildEnv.inside {
 
     stage ('Build') {
+      #sh 'sbt set logLevel in compile := Level.Debug'
+      sh 'sbt set logLevel := Level.Debug'
       sh 'sbt compile'
       sh 'sbt sampleClient/universal:stage'
     }
